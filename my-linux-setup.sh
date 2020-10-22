@@ -67,6 +67,9 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
+# Install Vim, curl and tilix 
+sudo apt-get install -y vim curl tilix
+
 # Setup terminal with zsh and oh-my-zsh
 sudo apt install zsh
 chsh -s $(which zsh)
@@ -76,10 +79,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k 
 
 # Config zshrc with powerlevel10k theme
-cat zshrc-config.txt >> ~/.zshrc
-
-# Install Vim, curl and tilix 
-sudo apt-get install -y vim curl tilix
+sed -ie 's|ZSH_THEME="robbyrussell"|ZSH_THEME="powerlevel10k/powerlevel10k"|g' ~/.zshrc
 
 # Install GitKraken
 wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
