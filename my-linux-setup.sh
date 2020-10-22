@@ -91,3 +91,35 @@ wget https://discord.com/api/download?platform=linux&format=deb
 Y yes | sudo apt --fix-broken install
 sudo apt install libgconf-2-4 libappindicator1 libc++1
 sudo dpkg -i 'download?platform=linux&format=deb.deb'
+
+# Configuring Git
+git config --global user.name 'Viviane Dias'
+git config --global user.email 'vivianedias@protonmail.com'
+
+# Installing pathogen vim to run fugitive.vim
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+cat >> ~/.vimrc << EOF 
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+EOF
+
+# Installing fugitive.vim
+cd ~/.vim/bundle && \
+git clone https://github.com/tpope/vim-fugitive.git
+vim -u NONE -c "helptags vim-fugitive/doc" -c q
+
+# Setting your default code editor to vim
+git config --global core.editor vim
+
+## Creating a commit template
+git config --global commit.template ~/.gitmessage.txt
+cat >> ~/.gitmessage.txt << EOF 
+Subject line (try to keep under 50 characters)
+
+Multi-line description of commit,
+feel free to be detailed.
+
+[Ticket: X]
+EOF
