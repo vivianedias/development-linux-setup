@@ -93,8 +93,8 @@ sudo apt install libgconf-2-4 libappindicator1 libc++1
 sudo dpkg -i 'download?platform=linux&format=deb.deb'
 
 # Configuring Git
-git config --global user.name 'Viviane Dias'
-git config --global user.email 'vivianedias@protonmail.com'
+git config --global user.name '<Your username>'
+git config --global user.email '<your_email@address.com>'
 
 # Installing pathogen vim to run fugitive.vim
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
