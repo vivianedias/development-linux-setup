@@ -80,3 +80,14 @@ cat zshrc-config.txt >> ~/.zshrc
 
 # Install Vim, curl and tilix 
 sudo apt-get install -y vim curl tilix
+
+# Install GitKraken
+wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+sudo apt install gconf2
+sudo dpkg -i gitkraken-amd64.deb
+
+# Install Discord
+wget https://discord.com/api/download?platform=linux&format=deb
+Y yes | sudo apt --fix-broken install
+sudo apt install libgconf-2-4 libappindicator1 libc++1
+sudo dpkg -i 'download?platform=linux&format=deb.deb'
